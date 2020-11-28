@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet"  href="index.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap" rel="stylesheet">
+
+    <meta name="viewport" charset="UTF-8" content="user-scalable=0, minimum-scale=1,
+    maximum-scale=1.0, width=device-width, initial-scale=1.0">
+        <title>Netflix</title>
+    </head>
+    <body>
+    <div id="loader"></div>
+    <div id="whowatch" class="screenz">
+    <div id="logo"></div>
+    <div id="whopic" onclick=screenChange(homescreen)></div>
+    <div id="whopic1" onclick=screenChange(homescreen)></div>
+    <div id=who>Who's watching?</div>
+    <div id=name1>Biden</div>
+    <div id=name2>Trump</div>
+    </div>
+
+    <div id="homescreen" class="screenz">
+      <div id=homebg></div>
+
+      <div id="cornerlogo"></div>
+      
+      <div id="wordz0">Comedy</div>
+      
+      <ul class="images">
+        <li onclick=grandpa()><img  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTfgni4b7jqf8NfaEw4NkIFkhzUomDF7l-JEq0w-FySSsR7n9isNB81qrMQ-08&s=10"></li>
+        <li onclick="themask()"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjJTpSkkYdXhjhUVEWL-KSc1Ox-n-Pt7f6E7geykjNqF-RVaEIUgU5QrPjd2V2&s=10"></li>
+        <li onclick=ghostbusters()><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnICxa4aHKa0DPderL9V6GSKk-_UwKJhmtzEnTqcP-I0liFaDjDV2xWoXrWEq1&s=10"></li>
+        <li onclick="sausageparty()"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpbnsmEAVX6BSd7vGJRq-q9KloEWQBUM_iTiG2aHKZIkGtTl1ZPRRBUX6Xl39w&s=10"></li>
+        <li onclick="jumanji()"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSANrEj3vjRr4yMAA0qqgzOTSoFzUKxHr2KhuNxRSrZw6tL2k6D"></li>
+        <li onclick="cops()"><img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS3DV9jURYiKwx9LVTDTegHRX4sxwLKXa4iCI3u9wTBpFeC0Tfl"></li>
+        <li onclick="happy()"><img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQkRVuCWAKRbcKuOELKJT4JE_JP-WKQEQdBv0qERxvdqZNjcvIO"></li>
+        <li onclick="mary()"><img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRI9zRpySlKD4ptyVd4hu7jbcue8QkPkV_1ZHyzfoWTODcsJ5Ia"></li>
+        <li onclick="hangover()"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7mNKrZTKJ-3jMDgEOA_XNR4rA7QIMeIe1tCk0CHiMAD2wqVqR"></li>
+        <li onclick="tnights()"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQM3LU2lUVplPPL-Rt8KujK0IijcDUnn2mDAgdpC77xtq2LpLQA"></li>
+        <li onclick="tropic()"><img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQeK0h6SlNK7EuC4x3iQ_xsivuK1akRvjJtp10XHCJ1Ddal4-5d"></li>
+        <li onclick="brothers()"><img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQ6DSZO6tqcrRiuWOdzouhf6Gu6KEyAmFlu_AHTXBKhklNtCw48"></li>
+        
+      </ul>
+      
+    <div id=wordz>Dramas</div>
+    
+    
+    <ul class="images1">
+
+      <li onclick="martian()"><img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSiwreHO3oFxkPPk2yyQXBEgB5RMaGsJguPKY8rtdwLaau_DW0f"></li>
+      <li onclick="sniper()"><img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTPDSHlKi10xVfysOTA49wDxpx2Bj1qRvr4cgIT6GPhEmsH2xwj"></li>
+      <li onclick="joker()"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmeftA4e1k4VW4PRhpDccXT0ktWmEH83QT15DeyctV&s"></li>
+      <li onclick="revenant()"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIxDkgUWqjkjmoQYf95hBETzvPsgMH90RE8F81O70Y63u_GdrQ"></li>
+      <li onclick="snowden()"><img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQBMhlaVE1TXq5aw44RY5o7NmatHS_H-52Rp2F0K8Xm1pjwzccm"></li>
+      <li onclick="arrival()"><img src="https://cdn3-www.comingsoon.net/assets/uploads/gallery/arrival/arrivalposter.jpg"></li>
+      <li onclick="django()"><img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSj9kwdFsi7pfCyGYZoKy7hFYpN0AP0wgjthO3QYjc39hOOGssW"></li>
+      <li onclick="compton()"><img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR_Fdo1BDLDKpaoUmIseDRLpP5Y7U9PhpY-wG2TKXF_dIx44TRH"></li>
+      <li onclick="fury()"><img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSOvuNs46WYgmsBrb3PqpoDJJHpTWpRA4184bcGdtcXo-u4Tq4X"></li>
+      <li onclick="fighter()"><img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTNTRb4sKWh3ueN0Tf2Pz3YSQyz_8SDZBV1lv5f9GGqo1oDxjaf"></li>
+      <li onclick="snitch()"><img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTAbaz6AMX4KyxjpEsV7ZTwDAu5rlMDCq8YgkKLYB89irx_4_0h"></li>
+      <li onclick="creed()"><img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQ07u0Xj8IACCXv1lvFffsLYW4RgE4lq9O0QCXVgI6JHlJIije2"></li>
+      
+    </ul>
+    <div id=wordz1>Horror</div>
+    <ul class="images2">
+      <li onclick="jaws()"><img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSKiATr7rDz89_qv3MzZ2jRuIoFaHehdK_G2pZIVxoZVaCIhrfn"></li>
+      <li onclick="shining()"><img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTfWqUZeOS0kkid0unmHjF3KCG64pQJYvqKxyN0T3hgBuYUyB-_"></li>
+      <li onclick="silence()"><img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTa-ZZcQIsRGqAziVSvy1uovUDgOPu8ms_UIF8AZWNpiJcBhsc3"></li>
+      <li onclick="friday()"><img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRm8_ZKvLk9WXfmLIMWjsnanRuMUDxyWc7oEbg7fRIKsRp_ySdf"></li>
+      <li onclick="humanc()"><img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcT1y1GiK27NrDbY5NrMyZmIDKwUV4pGvF5em04GBEpQKTlKsFCL"></li>
+      <li onclick="halloween()"><img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSY2iHyDk4CRvqN4eLvAp9dJmloSzAqbU_Pg0f4DeLE3d7SMhBq"></li>
+      <li onclick="exorcist()"><img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQk9LvINiNL-rRYdRbMhfIXU4e4qH_5vT8IRUnP325yEzRxCgpG"></li>
+      <li onclick="freaks()"><img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSJwIj3Mbn7LiDy33fwXtac3hfAN4eg84vWBj0oXV4prR0JsHTc"></li>
+      <li onclick="omen()"><img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTySNJ5hmIsVV_PcRmpW5vQAEjRrYRy3tW2WfmE2un18pIX90J9"></li>
+      <li onclick="saw()"><img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTQDT7PEjjhVUoNQ2xV9oXjrzFtk1pOr6sFLmkTmD3HvY3l07Y7"></li>
+      <li onclick="scream()"><img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQVknGCtgkcQzRIHl1QyahndTADhw4baeuZ5Ufqm-WdgYMqnTKh"></li>
+      <li onclick="nightofdead()"><img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQepSwd73NK9hRkE508z_W31HmbDASXo84PeyIa3-S_gUrKuINh"></li>
+      
+    </ul>
+    <div id="wordz2">Action</div>
+    <ul class="images3">
+      <li onclick="badboys()"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEQMwHJ24fNSNgN1NRPjxaTVnAENBZhA_YskLk6sI3-DlVtDaG"></li>
+      <li onclick="bookofeli()"><img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQlwtVwH4EYn_LsjPA42hJPsOBWpyFyjHB7o1N0GHCNJyLFhNiE"></li>
+      <li onclick="batman()"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYJoHOaEfKLlDB_uplMvhAJ3AhOnLBx2kmMc_DxeTOPdk57534"></li>
+      <li onclick="johnwick()"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScI_Tbe-E0NkPjGbylb5_ZiFddmgWW5AofIShL6QKYB1OhZ6nb"></li>
+      <li onclick="venom()"><img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSzh6VKG-NGn8BDHdAQso_xpjy-DGMmgYrQuJcQQq5QuvA8c-Q_"></li>
+      <li onclick="twoguns()"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQICmmKmhJ3XNgVJRGcpSsy2xWhAB8MDMC_uWQxtIV-Ze1SZYZ0"></li>
+      <li onclick="jurassicworld()"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDh09MIU-RGYkALiml4YDjVDSfx7f2ol_ASouFTzgtbkQs5ihE"></li>
+      <li onclick="godzilla()"><img src="https://pbs.twimg.com/media/D4clHP2UIAAeTs0.jpg:large"></li>
+      <li onclick="honestthief()"><img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSnhsNJK67j6w2oqxnWrO5vbiyCKffPlaTLjMOGuxZMU1ra8npY"></li>
+     
+      <li onclick="blackpanther()"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTi3UHmuft7zz-Ccup-UfFKoCc94KgsVjQLqJsUlY3qOpUsz55f"></li>
+      
+      
+    </ul>
+    
+
+    
+
+    
+    
+    
+
+    
+    <div id="topmenu">
+      <div id=tvh onclick="tvhopen()">TV Shows</div>
+      <div id=moviesh onclick="movieshopen()">Movies</div>
+      <div id=mylisth onclick="mylisthopen()">My list</div>
+    </div>
+  </div>
+    
+    
+      <div id="homeBtn" class="buttonz" onclick="screenChange(homescreen); brightBtn(homeBtn);closepopup()"></div>
+      <div id="searchBtn" class="buttonz" onclick="screenChange(searchscreen); brightBtn(searchBtn); closepopup1()"></div>
+  <div id="downloadsBtn" class="buttonz" onclick="screenChange(downloadsscreen); brightBtn(downloadsBtn); closepopup1()"></div>
+  <div id="moreBtn" class="buttonz" onclick="screenChange(morescreen); brightBtn(moreBtn); closepopup()"></div>
+  <div id="comingsoonBtn" class="buttonz" onclick="screenChange(comingsoonscreen); brightBtn(comingsoonBtn); closepopup1()"></div>
+  <div id="popup">
+    <div id="popupx" onclick=closepopup()></div>
+    <div id="popuppic">
+    </div>
+    <p id="describe">hello this is the movie grandpa war test to make it work
+    </p>
+    <div id=describetitle>The War With Grandpa</div>
+  </div>
+
+  
+  
+  <div id="morescreen" class="screenz">this is the more screen</div>
+  <div id="downloadsscreen" class="screenz"><p class="topsearches">Downloads</p>
+    <div id="downloadspicbox"></div>
+    
+    
+    
+
+        <input id="searchbar" class="searchbarz" placeholder="Search for a character, show, or movie" type="text" >
+        <img class="search-icon" src="https://i.ibb.co/ZYCsbZ0/icons8-search-32.png" />
+      
+      
+      
+          <ul class="searchlist">
+            <li><div class="listplay"><p class=listplaywordz>The Hangover</p></div><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7mNKrZTKJ-3jMDgEOA_XNR4rA7QIMeIe1tCk0CHiMAD2wqVqR"></li>
+            <li><div class="listplay"><p class=listplaywordz>Creed</p></div><img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQ07u0Xj8IACCXv1lvFffsLYW4RgE4lq9O0QCXVgI6JHlJIije2"></li>
+            <li><div class="listplay"><p class=listplaywordz>Ghostbusters</p></div><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnICxa4aHKa0DPderL9V6GSKk-_UwKJhmtzEnTqcP-I0liFaDjDV2xWoXrWEq1&s=10"></li>
+            <li><div class="listplay"><p class=listplaywordz>Sausage Party</p></div><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpbnsmEAVX6BSd7vGJRq-q9KloEWQBUM_iTiG2aHKZIkGtTl1ZPRRBUX6Xl39w&s=10"></li>
+            <li><div class="listplay"><p class=listplaywordz></p></div><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTfgni4b7jqf8NfaEw4NkIFkhzUomDF7l-JEq0w-FySSsR7n9isNB81qrMQ-08&s=10"></li>
+            <li><div class="listplay"><p class=listplaywordz></p></div><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjJTpSkkYdXhjhUVEWL-KSc1Ox-n-Pt7f6E7geykjNqF-RVaEIUgU5QrPjd2V2&s=10"></li>
+            <li><div class="listplay"><p class=listplaywordz></p></div><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnICxa4aHKa0DPderL9V6GSKk-_UwKJhmtzEnTqcP-I0liFaDjDV2xWoXrWEq1&s=10"></li>
+            <li><div class="listplay"><p class=listplaywordz></p></div><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpbnsmEAVX6BSd7vGJRq-q9KloEWQBUM_iTiG2aHKZIkGtTl1ZPRRBUX6Xl39w&s=10"></li>
+            <li><div class="listplay"><p class=listplaywordz></p></div><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTfgni4b7jqf8NfaEw4NkIFkhzUomDF7l-JEq0w-FySSsR7n9isNB81qrMQ-08&s=10"></li>
+      
+          </ul>
+          
+          <div class="backtotopbtn">backtotopbtn</div>
+          
+        </div>
+        
+
+      <div id="searchscreen" class="screenz"><p class="topsearches">Top Searches</p>
+
+
+
+
+  <input id="searchbar1" class="searchbarz" placeholder="Search for a character, show, or movie" type="text" >
+  <img class="search-icon"  src="https://i.ibb.co/ZYCsbZ0/icons8-search-32.png" />
+
+
+
+    <ul class="searchlist1">
+      <li><div class="listplay"><p class=listplaywordz>The Hangover</p></div><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7mNKrZTKJ-3jMDgEOA_XNR4rA7QIMeIe1tCk0CHiMAD2wqVqR"></li>
+      <li><div class="listplay"><p class=listplaywordz>Creed</p></div><img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQ07u0Xj8IACCXv1lvFffsLYW4RgE4lq9O0QCXVgI6JHlJIije2"></li>
+      <li><div class="listplay"><p class=listplaywordz>Ghostbusters</p></div><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnICxa4aHKa0DPderL9V6GSKk-_UwKJhmtzEnTqcP-I0liFaDjDV2xWoXrWEq1&s=10"></li>
+      <li><div class="listplay"><p class=listplaywordz>Sausage Party</p></div><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpbnsmEAVX6BSd7vGJRq-q9KloEWQBUM_iTiG2aHKZIkGtTl1ZPRRBUX6Xl39w&s=10"></li>
+      <li><div class="listplay"><p class=listplaywordz></p></div><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTfgni4b7jqf8NfaEw4NkIFkhzUomDF7l-JEq0w-FySSsR7n9isNB81qrMQ-08&s=10"></li>
+      <li><div class="listplay"><p class=listplaywordz></p></div><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjJTpSkkYdXhjhUVEWL-KSc1Ox-n-Pt7f6E7geykjNqF-RVaEIUgU5QrPjd2V2&s=10"></li>
+      <li><div class="listplay"><p class=listplaywordz></p></div><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnICxa4aHKa0DPderL9V6GSKk-_UwKJhmtzEnTqcP-I0liFaDjDV2xWoXrWEq1&s=10"></li>
+      <li><div class="listplay"><p class=listplaywordz></p></div><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpbnsmEAVX6BSd7vGJRq-q9KloEWQBUM_iTiG2aHKZIkGtTl1ZPRRBUX6Xl39w&s=10"></li>
+      <li><div class="listplay"><p class=listplaywordz></p></div><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTfgni4b7jqf8NfaEw4NkIFkhzUomDF7l-JEq0w-FySSsR7n9isNB81qrMQ-08&s=10"></li>
+
+
+      </ul>
+      </div>
+      <div id="comingsoonscreen" class="screenz">this is the comingsoon screen</div>
+      <div id="comingsoon"></div>
+      <div id="downloads"></div>
+      <div id="blurr"></div>
+
+
+    <script src="cordova.js"></script>
+        <script src="index.js"></script>
+    </body>
+</html>
