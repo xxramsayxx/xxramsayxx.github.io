@@ -45,15 +45,24 @@
       </section>
       <section class="skills" id="skills">
         <h2 class="section-title">Skills</h2>
-        <ul class="skills-list">
-          <li><span class="skill-icon">📱</span> Android App Development</li>
-          <li><span class="skill-icon">🌐</span> Hybrid Mobile Applications</li>
-          <li><span class="skill-icon">💻</span> JavaScript & Node.js</li>
-          <li><span class="skill-icon">🤖</span> Native Android Integration</li>
-          <li><span class="skill-icon">🎨</span> UI/UX Design & Animation</li>
-          <li><span class="skill-icon">⚡</span> Performance Optimization</li>
-          <li><span class="skill-icon">🔗</span> Git & Version Control</li>
-        </ul>
+        <div class="project-list">
+          <div class="project skill-card" data-description="Building native Android apps with Java/Kotlin, UI, and hardware integration."><span class="skill-icon">📱</span> Android App Development</div>
+          <div class="project skill-card" data-description="Creating cross-platform mobile apps using web technologies and Cordova/Capacitor."><span class="skill-icon">🌐</span> Hybrid Mobile Applications</div>
+          <div class="project skill-card" data-description="Advanced JavaScript and Node.js for backend, automation, and plugin development."><span class="skill-icon">💻</span> JavaScript & Node.js</div>
+          <div class="project skill-card" data-description="Integrating native Android features and plugins into hybrid apps for seamless experiences."><span class="skill-icon">🤖</span> Native Android Integration</div>
+          <div class="project skill-card" data-description="Designing and animating modern, user-friendly mobile interfaces."><span class="skill-icon">🎨</span> UI/UX Design & Animation</div>
+          <div class="project skill-card" data-description="Optimizing app performance, responsiveness, and battery usage."><span class="skill-icon">⚡</span> Performance Optimization</div>
+          <div class="project skill-card" data-description="Using Git for version control, collaboration, and project management."><span class="skill-icon">🔗</span> Git & Version Control</div>
+        </div>
+
+        <!-- Skill Description Modal -->
+        <div id="skill-modal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.55);z-index:99999;align-items:center;justify-content:center;">
+          <div style="background:#181818;color:#fff;padding:2em 1.2em;border-radius:16px;max-width:90vw;box-shadow:0 4px 32px rgba(0,0,0,0.18);text-align:center;position:relative;">
+            <span id="skill-modal-close" style="position:absolute;top:0.7em;right:1em;font-size:1.5em;cursor:pointer;">&times;</span>
+            <h3 id="skill-modal-title" style="margin-bottom:0.7em;"></h3>
+            <p id="skill-modal-desc" style="color:#bdbdbd;font-size:1.08em;"></p>
+          </div>
+        </div>
       </section>
       <section class="projects" id="projects">
         <h2 class="section-title">Featured Projects</h2>
