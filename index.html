@@ -1,62 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Programmer Profile</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Matthew Ramsay | Android & Hybrid Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="desktop.css" media="screen and (min-width: 501px)">
+  <link rel="stylesheet" href="mobile.css" media="screen and (max-width: 500px)">
 </head>
 <body>
-  <header class="hero">
-    <h1>Matthew Ramsay</h1>
-    <p class="subtitle">Android Developer & Hybrid App Specialist</p>
+  <!-- Splash Screen -->
+  <div id="splash" class="splash-screen" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:9999;background:#101010;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity 0.7s;">
+    <div class="splash-particles" style="position:absolute;top:0;left:0;width:100vw;height:100vh;pointer-events:none;"></div>
+    <div class="splash-content" style="position:relative;z-index:2;text-align:center;">
+      <h1 id="splash-name" style="font-size:2.2em;font-weight:700;letter-spacing:0.08em;color:#fff;margin-bottom:0.5em;"></h1>
+      <p style="color:#bdbdbd;font-size:1.1em;">Software Developer & Hybrid App Specialist</p>
+    </div>
+  </div>
+  <header class="sticky-name-bar">
+    Matthew Ramsay
   </header>
-  <main>
-    <section class="about">
-      <h2>About Me</h2>
-      <p>
-        Hi, I'm Matthew Ramsay. I specialize in building modern Android and hybrid mobile applications using the latest web and native technologies. My work includes custom plugin development, advanced Android event handling, and UI/UX improvements for real-world apps. I have extensive experience in JavaScript, Node.js, and native Android integration, and I enjoy solving complex problems with clean, maintainable code.
-      </p>
-    </section>
-    <section class="skills">
-      <h2>Skills</h2>
-      <ul>
-        <li>Android App Development</li>
-        <li>Hybrid Mobile Applications</li>
-        <li>JavaScript & Node.js</li>
-        <li>Native Android Integration</li>
-        <li>HTML5 & CSS3</li>
-        <li>UI/UX Design</li>
-        <li>Debugging & Compliance</li>
-        <li>Git & Version Control</li>
+    <nav class="navbar">
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
-    </section>
-    <section class="projects">
-      <h2>Featured Projects</h2>
-      <div class="project-list">
-        <div class="project">
-          <h3>FlashLight Hybrid App</h3>
-          <p>Custom hybrid mobile app with hardware volume rocker integration, Play Console compliance, and advanced event handling. Includes native Android code and plugin architecture.</p>
+    </nav>
+    <header class="hero">
+      <h1 class="hero-title">Android & Hybrid App Developer</h1>
+      <p class="hero-desc">Building seamless, modern mobile experiences with native and web technologies.</p>
+    </header>
+    <main>
+      <section class="about" id="about">
+        <h2 class="section-title">About Me</h2>
+        <p>
+          Hi, I'm Matthew Ramsay. I create high-performance Android and hybrid mobile apps, blending native power with web flexibility. My expertise spans custom plugin development, advanced event handling, and UI/UX innovation. I thrive on solving tough problems and delivering polished, modern solutions.
+        </p>
+      </section>
+      <section class="skills" id="skills">
+        <h2 class="section-title">Skills</h2>
+        <ul class="skills-list">
+          <li><span class="skill-icon">📱</span> Android App Development</li>
+          <li><span class="skill-icon">🌐</span> Hybrid Mobile Applications</li>
+          <li><span class="skill-icon">💻</span> JavaScript & Node.js</li>
+          <li><span class="skill-icon">🤖</span> Native Android Integration</li>
+          <li><span class="skill-icon">🎨</span> UI/UX Design & Animation</li>
+          <li><span class="skill-icon">⚡</span> Performance Optimization</li>
+          <li><span class="skill-icon">🔗</span> Git & Version Control</li>
+        </ul>
+      </section>
+      <section class="projects" id="projects">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="project-list">
+          <div class="project">
+            <h3>FlashLight Hybrid App</h3>
+            <p>Modern hybrid app with hardware volume rocker integration, Play Console compliance, and advanced event handling. Built with native Android and web technologies.</p>
+          </div>
+          <div class="project">
+            <h3>Volume Buttons Integration</h3>
+            <p>Engineered seamless hardware event forwarding for hybrid apps, enabling intuitive device control and feedback.</p>
+          </div>
+          <div class="project">
+            <h3>UI/UX Innovations</h3>
+            <p>Designed and implemented scroll/focus fixes, accessibility features, and animated interfaces for mobile apps.</p>
+          </div>
         </div>
-        <div class="project">
-          <h3>Volume Buttons Integration</h3>
-          <p>Developed solutions for intercepting and forwarding hardware volume button events to JavaScript, enabling seamless device control and user feedback in hybrid applications.</p>
-        </div>
-        <div class="project">
-          <h3>UI/UX Improvements</h3>
-          <p>Implemented scroll/focus fixes and accessibility enhancements for mobile app menus, improving usability across multiple devices.</p>
-        </div>
-      </div>
-    </section>
-    <section class="contact">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:xxramsayxx@msn.com">xxramsayxx@msn.com</a></p>
-      <p>GitHub: <a href="https://github.com/xxramsayxx" target="_blank">xxramsayxx</a></p>
-    </section>
-  </main>
-  <footer>
-    <p>&copy; 2025 Matthew Ramsay. All rights reserved.</p>
-  </footer>
-  <script src="script.js"></script>
+      </section>
+      <section class="contact" id="contact">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:xxramsayxx@msn.com">xxramsayxx@msn.com</a></p>
+        <p>GitHub: <a href="https://github.com/xxramsayxx" target="_blank">xxramsayxx</a></p>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2025 Matthew Ramsay. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
 </body>
 </html>
