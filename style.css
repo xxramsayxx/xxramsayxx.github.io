@@ -1,80 +1,104 @@
+/* Sleek, professional dark theme for Matthew Ramsay */
 body {
-  background: #181a20;
-  color: #e0e0e0;
-  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+  background: #14151a;
+  color: #e3e6ed;
+  font-family: 'Inter', 'Segoe UI', 'Roboto', Arial, sans-serif;
   margin: 0;
   min-height: 100vh;
 }
 .hero {
-  background: linear-gradient(90deg, #232526 0%, #414345 100%);
-  padding: 3rem 1rem 2rem 1rem;
+  background: linear-gradient(90deg, #232526 0%, #1a1b20 100%);
+  padding: 4rem 1rem 2rem 1rem;
   text-align: center;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.25);
 }
 .hero h1 {
-  font-size: 2.5rem;
+  font-size: 3rem;
   margin: 0;
-  color: #00bcd4;
+  color: #00c6fb;
+  letter-spacing: 2px;
 }
 .subtitle {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: #b0bec5;
+  margin-bottom: 1rem;
 }
 main {
-  max-width: 800px;
+  max-width: 900px;
   margin: 2rem auto;
   padding: 0 1rem;
 }
 section {
-  margin-bottom: 2rem;
-  background: #22242a;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-  padding: 1.5rem;
+  margin-bottom: 2.5rem;
+  background: #181a20;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+  padding: 2rem 1.5rem;
+  transition: box-shadow 0.2s;
+}
+section:hover {
+  box-shadow: 0 4px 24px rgba(0,0,0,0.28);
 }
 h2 {
-  color: #00bcd4;
+  color: #00c6fb;
   margin-top: 0;
+  font-size: 1.6rem;
+  border-bottom: 1px solid #232526;
+  padding-bottom: 0.5rem;
 }
 ul {
   list-style: none;
   padding: 0;
 }
 ul li {
-  background: #282c34;
+  background: #232526;
   margin: 0.5rem 0;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  color: #e0e0e0;
+  padding: 0.7rem 1.2rem;
+  border-radius: 6px;
+  color: #e3e6ed;
+  font-size: 1.05rem;
 }
 .project-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 .project {
-  background: #282c34;
-  border-radius: 4px;
-  padding: 1rem;
-  flex: 1 1 300px;
+  background: #232526;
+  border-radius: 8px;
+  padding: 1.2rem;
+  flex: 1 1 320px;
   min-width: 220px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  transition: box-shadow 0.2s;
+}
+.project:hover {
+  box-shadow: 0 4px 16px rgba(0,198,251,0.08);
 }
 footer {
   text-align: center;
-  padding: 1rem 0;
-  background: #232526;
+  padding: 1.2rem 0;
+  background: #181a20;
   color: #b0bec5;
   position: relative;
   bottom: 0;
   width: 100%;
+  font-size: 1rem;
 }
 .contact p {
   margin: 0.5rem 0;
 }
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   main {
     padding: 0 0.5rem;
   }
   .project-list {
     flex-direction: column;
+  }
+  .hero h1 {
+    font-size: 2.1rem;
+  }
+  section {
+    padding: 1.2rem 0.7rem;
   }
 }
