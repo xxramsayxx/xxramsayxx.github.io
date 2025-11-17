@@ -52,14 +52,14 @@
   justify-content: center;
 }
 .skills-list li {
-  background: rgba(34,34,34,0.85);
-  border-radius: 14px;
-  box-shadow: 0 2px 12px rgba(0,198,251,0.08);
-  padding: 0.8rem 1.4rem;
-  color: #e0e0e0;
-  font-size: 1.13rem;
+  background: rgba(34,34,34,0.92);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  padding: 1.1rem 1.7rem;
+  color: #f8f8fa;
+  font-size: 1.18rem;
   font-family: 'Space Grotesk', Arial, sans-serif;
-  font-weight: 600;
+  font-weight: 700;
   display: flex;
   align-items: center;
   gap: 0.7rem;
@@ -69,35 +69,54 @@
   cursor: pointer;
 }
 .skills-list li:hover {
-  background: linear-gradient(90deg,#00c6fb33,#232323 80%);
-  transform: scale(1.07) translateY(-4px);
-  box-shadow: 0 8px 32px rgba(0,198,251,0.18);
+  background: #232323;
+  transform: scale(1.04) translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.22);
 }
 .skill-icon {
   font-size: 1.5rem;
-  filter: drop-shadow(0 0 2px #00c6fb88);
-  transition: filter 0.3s;
+  filter: none;
+  transition: none;
 }
 .skills-list li:hover .skill-icon {
   filter: drop-shadow(0 0 6px #00c6fbcc);
 }
 /* Navbar */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.2rem 2rem;
-  background: rgba(24,24,24,0.85);
-  box-shadow: 0 2px 16px rgba(0,0,0,0.18);
+/* Sticky Name Bar */
+.sticky-name-bar {
   position: sticky;
   top: 0;
-  z-index: 1000;
-  backdrop-filter: blur(12px);
+  width: 100%;
+  background: #181818;
+  color: #f8f8fa;
+  font-family: 'Space Grotesk', Arial, sans-serif;
+  font-size: 1.35em;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-align: center;
+  padding: 0.7em 0 0.5em 0;
+  z-index: 1100;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.18);
+  border-bottom: 1.5px solid #232323;
+  backdrop-filter: blur(10px);
+}
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.7em 0 0.7em 0;
+  background: #202024;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.18);
+  position: sticky;
+  top: 3.1em;
+  z-index: 1099;
+  border-bottom: 1px solid #232323;
+  backdrop-filter: blur(10px);
 }
 
   /* Remove all blue/cyan highlights from links, buttons, and focus states */
   a, a:visited, a:active, a:focus, a:hover {
-    color: #222 !important;
+    color: #00c6fb !important;
     outline: none !important;
     text-decoration: underline;
   }
@@ -138,6 +157,15 @@
 }
 .nav-links a:hover::after {
   transform: scaleX(1);
+}
+/* Contact Section Links */
+.contact a {
+  color: #00c6fb !important;
+  text-decoration: none !important;
+  transition: color 0.2s;
+}
+.contact a:hover {
+  color: #0090c6;
 }
 /* Hero Section */
 .hero-desc {

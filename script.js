@@ -8,34 +8,84 @@ window.addEventListener('DOMContentLoaded', () => {
 					if (oldNotify) oldNotify.remove();
 					// Get card position
 					const rect = card.getBoundingClientRect();
-					// Create notification bar
-					const notifyBar = document.createElement('div');
-					notifyBar.className = 'skill-notify';
-					notifyBar.textContent = card.getAttribute('data-description') || card.textContent.trim();
-					notifyBar.style.position = 'fixed';
-					notifyBar.style.width = rect.width + 'px';
-					notifyBar.style.left = rect.left + 'px';
-					notifyBar.style.top = (rect.bottom) + 'px';
-					notifyBar.style.background = '#232323';
-					notifyBar.style.color = '#fff';
-					notifyBar.style.padding = '1em 2em';
-					notifyBar.style.borderRadius = '0 0 16px 16px';
-					notifyBar.style.boxShadow = '0 4px 16px #000';
-					notifyBar.style.border = '2px solid #333';
-					notifyBar.style.fontSize = '1.08em';
-					notifyBar.style.fontFamily = "'Space Grotesk',Arial,sans-serif";
-					notifyBar.style.zIndex = '99999';
-					notifyBar.style.opacity = '0';
-					notifyBar.style.pointerEvents = 'none';
-					notifyBar.style.transition = 'transform 0.4s cubic-bezier(.77,0,.18,1), opacity 0.4s';
-					notifyBar.style.transform = 'translateY(-16px)';
-					document.body.appendChild(notifyBar);
-					setTimeout(() => {
-						notifyBar.style.opacity = '1';
-						notifyBar.style.transform = 'translateY(0)';
-					}, 10);
-					// Remove notification on scroll
+					// Calculate if scroll is needed
+					const cardBottom = rect.bottom;
+					const viewportBottom = window.innerHeight;
+					let scrollPromise = Promise.resolve();
+					// Only add notification bar after scroll is complete
+							// Robust scroll and notification logic
+							function createNotifyBar(rectOverride) {
+								const notifyBar = document.createElement('div');
+								notifyBar.className = 'skill-notify';
+								notifyBar.textContent = card.getAttribute('data-description') || card.textContent.trim();
+								notifyBar.style.position = 'fixed';
+								const rectToUse = rectOverride || card.getBoundingClientRect();
+								notifyBar.style.width = rectToUse.width + 'px';
+								notifyBar.style.left = rectToUse.left + 'px';
+								notifyBar.style.top = (rectToUse.bottom) + 'px';
+								notifyBar.style.background = 'linear-gradient(to bottom, rgba(34,34,34,0.01) 0%, #232323 18px, #232323 100%)';
+								notifyBar.style.color = '#fff';
+								notifyBar.style.padding = '1em 2em';
+								notifyBar.style.borderRadius = '0 0 16px 16px';
+								notifyBar.style.boxShadow = '0 4px 16px #000';
+								notifyBar.style.border = '2px solid #333';
+								notifyBar.style.fontSize = '1.08em';
+								notifyBar.style.fontFamily = "'Space Grotesk',Arial,sans-serif";
+								notifyBar.style.zIndex = '99999';
+								notifyBar.style.opacity = '0';
+								notifyBar.style.pointerEvents = 'none';
+								notifyBar.style.transition = 'transform 0.4s cubic-bezier(.77,0,.18,1), opacity 0.4s';
+								notifyBar.style.transform = 'translateY(-16px)';
+								document.body.appendChild(notifyBar);
+								setTimeout(() => {
+									notifyBar.style.opacity = '1';
+									notifyBar.style.transform = 'translateY(0)';
+								}, 10);
+								// Remove notification on scroll
+								let autoScrolling = false;
+								if (window.__skillAutoScroll) {
+									autoScrolling = true;
+									setTimeout(() => { autoScrolling = false; window.__skillAutoScroll = false; }, 500);
+								}
+								const removeNotify = () => {
+									if (autoScrolling) return;
+									if (notifyBar.parentNode) notifyBar.remove();
+									window.removeEventListener('scroll', removeNotify, true);
+								};
+								window.addEventListener('scroll', removeNotify, true);
+								setTimeout(() => {
+									notifyBar.style.opacity = '0';
+									notifyBar.style.transform = 'translateY(-16px)';
+									setTimeout(() => {
+										removeNotify();
+									}, 400);
+								}, 3500);
+							}
+
+							setTimeout(() => {
+								// Center the card in the viewport if it's near the bottom
+								const cardElem = card;
+								const cardRect = cardElem.getBoundingClientRect();
+								const notifyHeight = 64;
+								const cardBottom = cardRect.bottom;
+								const viewportBottom = window.innerHeight;
+								if (cardBottom + notifyHeight > viewportBottom) {
+									window.__skillAutoScroll = true;
+									cardElem.scrollIntoView({ block: "center", behavior: "smooth" });
+									setTimeout(() => {
+										// Recalculate card position after scroll
+										const newRect = cardElem.getBoundingClientRect();
+										createNotifyBar(newRect);
+									}, 500); // Wait for scroll animation
+								} else {
+									setTimeout(() => {
+										createNotifyBar(cardRect);
+									}, 10);
+								}
+							}, 10);
+					// Remove notification on scroll and after animation
 					const removeNotify = () => {
+						if (autoScrolling) return;
 						if (notifyBar.parentNode) notifyBar.remove();
 						window.removeEventListener('scroll', removeNotify, true);
 					};
@@ -49,13 +99,7 @@ window.addEventListener('DOMContentLoaded', () => {
 					}, 2000);
 				});
 			});
-		// Add alert for UI/UX Innovations project card
-		const uiuxCard = Array.from(document.querySelectorAll('.project h3')).find(h3 => h3.textContent.trim() === 'UI/UX Innovations');
-		if (uiuxCard) {
-			uiuxCard.parentElement.addEventListener('click', function() {
-				alert('this fucking worked');
-			});
-		}
+		// ...existing code...
 
 	// Splash logic
 	const stickyBar = document.querySelector('.sticky-name-bar');
@@ -96,15 +140,17 @@ window.addEventListener('DOMContentLoaded', () => {
 	}
 
 	// Show splash for 4.75 seconds, then show sticky bar
-	setTimeout(() => {
-		document.getElementById('splash').classList.add('hide');
+	function hideSplash() {
+		const splash = document.getElementById('splash');
+		splash.classList.add('hide');
 		if (stickyBar) stickyBar.classList.remove('hide-bar');
-		// Lock horizontal scroll after splash
 		document.body.style.overflowX = 'hidden';
 		document.body.style.width = '100vw';
 		document.documentElement.style.overflowX = 'hidden';
 		document.documentElement.style.width = '100vw';
-	}, 4750);
+	}
+	setTimeout(hideSplash, 4750);
+	document.getElementById('splash').addEventListener('click', hideSplash);
 
 	// Section entrance animation
 	function revealSections() {
