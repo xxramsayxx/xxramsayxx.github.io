@@ -19,7 +19,15 @@ window.addEventListener('DOMContentLoaded', () => {
 								notifyBar.className = 'skill-notify';
 								notifyBar.textContent = card.getAttribute('data-description') || card.textContent.trim();
 								notifyBar.style.position = 'fixed';
+								notifyBar.style.boxSizing = 'border-box';
 								const rectToUse = rectOverride || card.getBoundingClientRect();
+								
+								// Get card's padding
+								const cardStyles = window.getComputedStyle(card);
+								const cardPaddingLeft = parseFloat(cardStyles.paddingLeft);
+								const cardPaddingRight = parseFloat(cardStyles.paddingRight);
+								
+								// Notification bar width should match the full card width
 								notifyBar.style.width = rectToUse.width + 'px';
 								notifyBar.style.left = rectToUse.left + 'px';
 								notifyBar.style.top = (rectToUse.bottom) + 'px';
@@ -28,7 +36,7 @@ window.addEventListener('DOMContentLoaded', () => {
 								notifyBar.style.padding = '1em 2em';
 								notifyBar.style.borderRadius = '0 0 16px 16px';
 								notifyBar.style.boxShadow = '0 4px 16px #000';
-								notifyBar.style.border = '2px solid #333';
+								notifyBar.style.border = 'none';
 								notifyBar.style.fontSize = '1.08em';
 								notifyBar.style.fontFamily = "'Space Grotesk',Arial,sans-serif";
 								notifyBar.style.zIndex = '99999';
