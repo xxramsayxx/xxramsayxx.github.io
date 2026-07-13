@@ -491,6 +491,28 @@ main {
   flex: 1;
 }
 
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1rem;
+  margin-top: 0.35rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--border);
+}
+
+.project-links a {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--accent) !important;
+  letter-spacing: -0.01em;
+}
+
+.project-links a:hover {
+  color: #a8d0ff !important;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 /* ---------- Contact ---------- */
 .contact-intro {
   color: var(--text-muted);
