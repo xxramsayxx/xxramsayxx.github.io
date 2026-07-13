@@ -1,187 +1,114 @@
-// All logic in one DOMContentLoaded
-window.addEventListener('DOMContentLoaded', () => {
-			// Slide-down notification directly below the clicked skill card, above all content
-			document.querySelectorAll('.skill-card').forEach(card => {
-				card.addEventListener('click', function() {
-					// Remove any existing notification
-					let oldNotify = document.querySelector('.skill-notify');
-					if (oldNotify) oldNotify.remove();
-					// Get card position
-					const rect = card.getBoundingClientRect();
-					// Calculate if scroll is needed
-					const cardBottom = rect.bottom;
-					const viewportBottom = window.innerHeight;
-					let scrollPromise = Promise.resolve();
-					// Only add notification bar after scroll is complete
-							// Robust scroll and notification logic
-							function createNotifyBar(rectOverride) {
-								const notifyBar = document.createElement('div');
-								notifyBar.className = 'skill-notify';
-								notifyBar.textContent = card.getAttribute('data-description') || card.textContent.trim();
-								notifyBar.style.position = 'fixed';
-								notifyBar.style.boxSizing = 'border-box';
-								const rectToUse = rectOverride || card.getBoundingClientRect();
-								
-								// Get card's padding
-								const cardStyles = window.getComputedStyle(card);
-								const cardPaddingLeft = parseFloat(cardStyles.paddingLeft);
-								const cardPaddingRight = parseFloat(cardStyles.paddingRight);
-								
-								// Notification bar width should match the full card width
-								notifyBar.style.width = rectToUse.width + 'px';
-								notifyBar.style.left = rectToUse.left + 'px';
-								notifyBar.style.top = (rectToUse.bottom) + 'px';
-								notifyBar.style.background = 'linear-gradient(to bottom, rgba(34,34,34,0.01) 0%, #232323 18px, #232323 100%)';
-								notifyBar.style.color = '#fff';
-								notifyBar.style.padding = '1em 2em';
-								notifyBar.style.borderRadius = '0 0 16px 16px';
-								notifyBar.style.boxShadow = '0 4px 16px #000';
-								notifyBar.style.border = 'none';
-								notifyBar.style.fontSize = '1.08em';
-								notifyBar.style.fontFamily = "'Space Grotesk',Arial,sans-serif";
-								notifyBar.style.zIndex = '99999';
-								notifyBar.style.opacity = '0';
-								notifyBar.style.pointerEvents = 'none';
-								notifyBar.style.transition = 'transform 0.4s cubic-bezier(.77,0,.18,1), opacity 0.4s';
-								notifyBar.style.transform = 'translateY(-16px)';
-								document.body.appendChild(notifyBar);
-								setTimeout(() => {
-									notifyBar.style.opacity = '1';
-									notifyBar.style.transform = 'translateY(0)';
-								}, 10);
-								// Remove notification on scroll
-								let autoScrolling = false;
-								if (window.__skillAutoScroll) {
-									autoScrolling = true;
-									setTimeout(() => { autoScrolling = false; window.__skillAutoScroll = false; }, 500);
-								}
-								const removeNotify = () => {
-									if (autoScrolling) return;
-									if (notifyBar.parentNode) notifyBar.remove();
-									window.removeEventListener('scroll', removeNotify, true);
-								};
-								window.addEventListener('scroll', removeNotify, true);
-								setTimeout(() => {
-									notifyBar.style.opacity = '0';
-									notifyBar.style.transform = 'translateY(-16px)';
-									setTimeout(() => {
-										removeNotify();
-									}, 400);
-								}, 3500);
-							}
+(() => {
+  "use strict";
 
-							setTimeout(() => {
-								// Center the card in the viewport if it's near the bottom
-								const cardElem = card;
-								const cardRect = cardElem.getBoundingClientRect();
-								const notifyHeight = 64;
-								const cardBottom = cardRect.bottom;
-								const viewportBottom = window.innerHeight;
-								if (cardBottom + notifyHeight > viewportBottom) {
-									window.__skillAutoScroll = true;
-									cardElem.scrollIntoView({ block: "center", behavior: "smooth" });
-									setTimeout(() => {
-										// Recalculate card position after scroll
-										const newRect = cardElem.getBoundingClientRect();
-										createNotifyBar(newRect);
-									}, 500); // Wait for scroll animation
-								} else {
-									setTimeout(() => {
-										createNotifyBar(cardRect);
-									}, 10);
-								}
-							}, 10);
-					// Remove notification on scroll and after animation
-					const removeNotify = () => {
-						if (autoScrolling) return;
-						if (notifyBar.parentNode) notifyBar.remove();
-						window.removeEventListener('scroll', removeNotify, true);
-					};
-					window.addEventListener('scroll', removeNotify, true);
-					setTimeout(() => {
-						notifyBar.style.opacity = '0';
-						notifyBar.style.transform = 'translateY(-16px)';
-						setTimeout(() => {
-							removeNotify();
-						}, 400);
-					}, 2000);
-				});
-			});
-		// ...existing code...
+  const splash = document.getElementById("splash");
+  const header = document.getElementById("site-header");
+  const navToggle = document.getElementById("nav-toggle");
+  const nav = document.querySelector(".nav");
+  const yearEl = document.getElementById("year");
 
-	// Splash logic
-	const stickyBar = document.querySelector('.sticky-name-bar');
-	if (stickyBar) stickyBar.classList.add('hide-bar');
+  // Footer year
+  if (yearEl) {
+    yearEl.textContent = String(new Date().getFullYear());
+  }
 
-	// Splash name game
-	const name = 'Matthew Ramsay';
-	const splashName = document.getElementById('splash-name');
-	splashName.innerHTML = '';
-	name.split('').forEach((char, i) => {
-		const span = document.createElement('span');
-		span.textContent = char === ' ' ? '\u00A0' : char;
-		span.addEventListener('click', () => {
-			span.classList.add('bounce');
-			setTimeout(() => span.classList.remove('bounce'), 400);
-		});
-		splashName.appendChild(span);
-	});
+  // Splash — short, dismissible
+  const hideSplash = () => {
+    if (!splash || splash.classList.contains("hide")) return;
+    splash.classList.add("hide");
+    splash.setAttribute("aria-hidden", "true");
+  };
 
-	// Particle burst
-	const splashParticles = document.querySelector('.splash-particles');
-	for (let i = 0; i < 32; i++) {
-		const p = document.createElement('div');
-		p.style.position = 'absolute';
-		p.style.width = '8px';
-		p.style.height = '8px';
-		p.style.borderRadius = '50%';
-		p.style.background = '#e0e0e0';
-		p.style.left = '50%';
-		p.style.top = '50%';
-		p.style.transform = `translate(-50%, -50%) rotate(${i*11.25}deg) translateY(0)`;
-		splashParticles.appendChild(p);
-		setTimeout(() => {
-			p.style.transition = 'transform 1s cubic-bezier(.77,0,.18,1), opacity 1s';
-			p.style.transform = `translate(-50%, -50%) rotate(${i*11.25}deg) translateY(80px)`;
-			p.style.opacity = '0';
-		}, 400);
-	}
+  if (splash) {
+    const timer = setTimeout(hideSplash, 1600);
+    splash.addEventListener("click", () => {
+      clearTimeout(timer);
+      hideSplash();
+    });
+    // Keyboard: Escape or Enter dismisses
+    document.addEventListener(
+      "keydown",
+      (e) => {
+        if (e.key === "Escape" || e.key === "Enter" || e.key === " ") {
+          clearTimeout(timer);
+          hideSplash();
+        }
+      },
+      { once: true }
+    );
+  }
 
-	// Show splash for 4.75 seconds, then show sticky bar
-	function hideSplash() {
-		const splash = document.getElementById('splash');
-		splash.classList.add('hide');
-		if (stickyBar) stickyBar.classList.remove('hide-bar');
-		document.body.style.overflowX = 'hidden';
-		document.body.style.width = '100vw';
-		document.documentElement.style.overflowX = 'hidden';
-		document.documentElement.style.width = '100vw';
-	}
-	setTimeout(hideSplash, 4750);
-	document.getElementById('splash').addEventListener('click', hideSplash);
+  // Header shadow on scroll
+  let lastY = 0;
+  const onScroll = () => {
+    const y = window.scrollY || window.pageYOffset;
+    if (header) {
+      header.classList.toggle("scrolled", y > 12);
+    }
+    lastY = y;
+  };
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
 
-	// Section entrance animation
-	function revealSections() {
-		document.querySelectorAll('.section-title').forEach(el => {
-			const rect = el.getBoundingClientRect();
-			if (rect.top < window.innerHeight - 80) {
-				el.classList.add('visible');
-			}
-		});
-	}
-	window.addEventListener('scroll', revealSections);
-	revealSections();
-});
-// Always scroll to top on page load and refresh (cross-browser)
-if ('scrollRestoration' in history) {
-	history.scrollRestoration = 'manual';
-}
-window.addEventListener('beforeunload', function () {
-	window.scrollTo(0, 0);
-});
-window.addEventListener('load', function () {
-	setTimeout(function () {
-		window.scrollTo(0, 0);
-	}, 10);
-});
-// ...existing code...
+  // Mobile nav
+  if (navToggle && nav) {
+    navToggle.addEventListener("click", () => {
+      const open = nav.classList.toggle("open");
+      navToggle.setAttribute("aria-expanded", open ? "true" : "false");
+      navToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    });
+
+    // Close after navigating
+    nav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        nav.classList.remove("open");
+        navToggle.setAttribute("aria-expanded", "false");
+        navToggle.setAttribute("aria-label", "Open menu");
+      });
+    });
+  }
+
+  // Smooth anchor offset is handled via CSS scroll-padding-top
+  // Extra polish: prevent default jump if needed for older browsers
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener("click", (e) => {
+      const id = link.getAttribute("href");
+      if (!id || id === "#") return;
+      const target = document.querySelector(id);
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      history.pushState(null, "", id);
+    });
+  });
+
+  // Reveal sections / cards on scroll
+  const revealTargets = document.querySelectorAll(
+    ".section-header, .about-grid, .skill-card, .project-card, .contact-intro, .contact-card, .hero-content"
+  );
+
+  revealTargets.forEach((el) => el.classList.add("reveal"));
+
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+    );
+
+    revealTargets.forEach((el) => io.observe(el));
+  } else {
+    revealTargets.forEach((el) => el.classList.add("visible"));
+  }
+
+  // Stagger skill / project cards slightly
+  document.querySelectorAll(".skills-grid .skill-card, .projects-grid .project-card").forEach((card, i) => {
+    card.style.transitionDelay = `${Math.min(i * 0.05, 0.35)}s`;
+  });
+})();

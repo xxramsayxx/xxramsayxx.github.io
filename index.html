@@ -1,95 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Matthew Ramsay — Android & Hybrid App Developer. Building modern mobile experiences with native and web technologies.">
   <title>Matthew Ramsay | Android & Hybrid Developer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="base.css">
-  <link rel="stylesheet" href="desktop.css" media="screen and (min-width: 501px)">
-  <link rel="stylesheet" href="mobile.css" media="screen and (max-width: 500px)">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Splash Screen -->
-  <div id="splash" class="splash-screen" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:9999;background:#101010;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity 0.7s;">
-    <div class="splash-particles" style="position:absolute;top:0;left:0;width:100vw;height:100vh;pointer-events:none;"></div>
-    <div class="splash-content" style="position:relative;z-index:2;text-align:center;">
-      <h1 id="splash-name" style="font-size:2.2em;font-weight:700;letter-spacing:0.08em;color:#fff;margin-bottom:0.5em;"></h1>
-      <p style="color:#bdbdbd;font-size:1.1em;">Software Developer & Hybrid App Specialist</p>
+  <!-- Splash -->
+  <div id="splash" class="splash" aria-hidden="true">
+    <div class="splash-inner">
+      <p class="splash-label">Portfolio</p>
+      <h1 class="splash-name">Matthew Ramsay</h1>
+      <p class="splash-role">Software Developer & Hybrid App Specialist</p>
     </div>
   </div>
-  <header class="sticky-name-bar">
-    Matthew Ramsay
-  </header>
-  <nav class="navbar">
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-  <section class="hero">
-    <h1 class="hero-title">Android & Hybrid App Developer</h1>
-    <p class="hero-desc">Building seamless, modern mobile experiences with native and web technologies.</p>
-  </section>
-    <main>
-      <section class="about" id="about">
-        <h2 class="section-title">About Me</h2>
-        <p>
-          Hi, I'm Matthew Ramsay. I create high-performance Android and hybrid mobile apps, blending native power with web flexibility. My expertise spans custom plugin development, advanced event handling, and UI/UX innovation. I thrive on solving tough problems and delivering polished, modern solutions.
-        </p>
-      </section>
-      <section class="skills" id="skills">
-        <h2 class="section-title">Skills</h2>
-        <div class="project-list">
-          <div class="project skill-card" data-description="Building native Android apps with Java/Kotlin, UI, and hardware integration."><span class="skill-icon">📱</span> Android App Development</div>
-          <div class="project skill-card" data-description="Creating cross-platform mobile apps using web technologies and Cordova/Capacitor."><span class="skill-icon">🌐</span> Hybrid Mobile Applications</div>
-          <div class="project skill-card" data-description="Advanced JavaScript and Node.js for backend, automation, and plugin development."><span class="skill-icon">💻</span> JavaScript & Node.js</div>
-          <div class="project skill-card" data-description="Integrating native Android features and plugins into hybrid apps for seamless experiences."><span class="skill-icon">🤖</span> Native Android Integration</div>
-          <div class="project skill-card" data-description="Designing and animating modern, user-friendly mobile interfaces."><span class="skill-icon">🎨</span> UI/UX Design & Animation</div>
-          <div class="project skill-card" data-description="Optimizing app performance, responsiveness, and battery usage."><span class="skill-icon">⚡</span> Performance Optimization</div>
-          <div class="project skill-card" data-description="Using Git for version control, collaboration, and project management."><span class="skill-icon">🔗</span> Git & Version Control</div>
-        </div>
 
-        <!-- Skill Description Modal -->
-        <div id="skill-modal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.55);z-index:99999;align-items:center;justify-content:center;">
-          <div style="background:#181818;color:#fff;padding:2em 1.2em;border-radius:16px;max-width:90vw;box-shadow:0 4px 32px rgba(0,0,0,0.18);text-align:center;position:relative;">
-            <span id="skill-modal-close" style="position:absolute;top:0.7em;right:1em;font-size:1.5em;cursor:pointer;">&times;</span>
-            <h3 id="skill-modal-title" style="margin-bottom:0.7em;"></h3>
-            <p id="skill-modal-desc" style="color:#bdbdbd;font-size:1.08em;"></p>
-          </div>
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a href="#" class="logo">Matthew Ramsay</a>
+      <nav class="nav" aria-label="Primary">
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <p class="eyebrow">Android · Hybrid · Web</p>
+        <h1 class="hero-title">Building seamless mobile experiences</h1>
+        <p class="hero-desc">
+          High-performance Android and hybrid apps that blend native power with modern web technologies.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">View Projects</a>
+          <a href="#contact" class="btn btn-ghost">Get in Touch</a>
         </div>
-      </section>
-      <section class="projects" id="projects">
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="section-header">
+        <p class="eyebrow">About</p>
+        <h2 class="section-title">About Me</h2>
+      </div>
+      <div class="about-grid">
+        <p class="about-lead">
+          Hi, I'm Matthew Ramsay. I create high-performance Android and hybrid mobile apps, blending native power with web flexibility.
+        </p>
+        <p class="about-body">
+          My expertise spans custom plugin development, advanced event handling, and UI/UX innovation. I thrive on solving tough problems and delivering polished, modern solutions that feel effortless to use.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="section-header">
+        <p class="eyebrow">Expertise</p>
+        <h2 class="section-title">Skills</h2>
+      </div>
+      <div class="skills-grid">
+        <article class="skill-card" tabindex="0">
+          <div class="skill-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>
+          </div>
+          <h3>Android Development</h3>
+          <p>Native Android apps with Java/Kotlin, polished UI, and hardware integration.</p>
+        </article>
+        <article class="skill-card" tabindex="0">
+          <div class="skill-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.5 5.5 3.5 9s-1 6.5-3.5 9c-2.5-2.5-3.5-5.5-3.5-9s1-6.5 3.5-9z"/></svg>
+          </div>
+          <h3>Hybrid Mobile Apps</h3>
+          <p>Cross-platform apps with Cordova, Capacitor, and modern web stacks.</p>
+        </article>
+        <article class="skill-card" tabindex="0">
+          <div class="skill-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4M14 4l-4 16"/></svg>
+          </div>
+          <h3>JavaScript & Node.js</h3>
+          <p>Backend logic, automation, tooling, and custom plugin development.</p>
+        </article>
+        <article class="skill-card" tabindex="0">
+          <div class="skill-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3>Native Integration</h3>
+          <p>Bridging native Android features into hybrid apps for seamless UX.</p>
+        </article>
+        <article class="skill-card" tabindex="0">
+          <div class="skill-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          </div>
+          <h3>UI/UX & Animation</h3>
+          <p>Modern, accessible interfaces with thoughtful motion and polish.</p>
+        </article>
+        <article class="skill-card" tabindex="0">
+          <div class="skill-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <h3>Performance</h3>
+          <p>Optimizing responsiveness, efficiency, and battery usage on device.</p>
+        </article>
+        <article class="skill-card" tabindex="0">
+          <div class="skill-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="3"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          </div>
+          <h3>Git & Version Control</h3>
+          <p>Clean collaboration, branching strategy, and project management.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="section-header">
+        <p class="eyebrow">Work</p>
         <h2 class="section-title">Featured Projects</h2>
-        <div class="project-list">
-          <div class="project">
-            <h3>FlashLight Hybrid App</h3>
-            <p>Modern hybrid app with hardware volume rocker integration, Play Console compliance, and advanced event handling. Built with native Android and web technologies.</p>
+      </div>
+      <div class="projects-grid">
+        <article class="project-card">
+          <div class="project-meta">
+            <span class="project-tag">Hybrid · Android</span>
           </div>
-          <div class="project">
-            <h3>Volume Buttons Integration</h3>
-            <p>Engineered seamless hardware event forwarding for hybrid apps, enabling intuitive device control and feedback.</p>
+          <h3>FlashLight Hybrid App</h3>
+          <p>
+            Modern hybrid app with hardware volume rocker integration, Play Console compliance, and advanced event handling. Built with native Android and web technologies.
+          </p>
+        </article>
+        <article class="project-card">
+          <div class="project-meta">
+            <span class="project-tag">Native Bridge</span>
           </div>
-          <div class="project">
-            <h3>UI/UX Innovations</h3>
-            <p>Designed and implemented scroll/focus fixes, accessibility features, and animated interfaces for mobile apps.</p>
+          <h3>Volume Buttons Integration</h3>
+          <p>
+            Engineered seamless hardware event forwarding for hybrid apps, enabling intuitive device control and tactile feedback.
+          </p>
+        </article>
+        <article class="project-card">
+          <div class="project-meta">
+            <span class="project-tag">UI/UX</span>
           </div>
-        </div>
-      </section>
-      <section class="contact" id="contact">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:xxramsayxx@msn.com">xxramsayxx@msn.com</a></p>
-        <p>GitHub: <a href="https://github.com/xxramsayxx" target="_blank">xxramsayxx</a></p>
-      </section>
-    </main>
-    <footer>
-      <p>&copy; 2025 Matthew Ramsay. All rights reserved.</p>
-    </footer>
-    <script src="script.js"></script>
+          <h3>UI/UX Innovations</h3>
+          <p>
+            Scroll and focus fixes, accessibility improvements, and animated interfaces designed for polished mobile experiences.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="section-header">
+        <p class="eyebrow">Connect</p>
+        <h2 class="section-title">Get in Touch</h2>
+      </div>
+      <p class="contact-intro">Open to collaborations, freelance work, and interesting problems.</p>
+      <div class="contact-links">
+        <a href="mailto:xxramsayxx@msn.com" class="contact-card">
+          <span class="contact-label">Email</span>
+          <span class="contact-value">xxramsayxx@msn.com</span>
+        </a>
+        <a href="https://github.com/xxramsayxx" target="_blank" rel="noopener noreferrer" class="contact-card">
+          <span class="contact-label">GitHub</span>
+          <span class="contact-value">@xxramsayxx</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year">2026</span> Matthew Ramsay. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
